@@ -39,8 +39,8 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
 
-        <form id="tasksForm" method="POST">
-            <script>console.log("dupa")</script>
+        <form id="roomsForm" method="GET" action="${contextPath}/rooms">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
 
         <h2>Welcome ${pageContext.request.userPrincipal.name}</h2>
@@ -51,7 +51,7 @@
                         <a onclick="document.forms['logoutForm'].submit()">Logout</a>
                     </div>
                     <div class="row">
-                        <a onclick="document.forms['tasksForm'].submit()">Tasks</a>
+                        <a onclick="document.forms['roomsForm'].submit()">Rooms</a>
                     </div>
                 </div>
                 <div class="col-sm">
