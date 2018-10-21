@@ -53,6 +53,9 @@
                     <div class="row">
                         <a onclick="document.forms['roomsForm'].submit()">Rooms</a>
                     </div>
+                    <div class="row">
+                        <h4 class="text-center"><a href="${contextPath}/room">ADD NEW ROOM</a></h4>
+                    </div>
                 </div>
                 <div class="col-sm">
 
