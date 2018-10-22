@@ -1,5 +1,9 @@
-package com.rentaroom.rentaroom.login;
+package com.rentaroom.security.user.controller;
 
+import com.rentaroom.security.user.service.UserService;
+import com.rentaroom.security.user.validator.UserValidator;
+import com.rentaroom.security.service.SecurityService;
+import com.rentaroom.security.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class UserController {
+
     @Autowired
     private UserService userService;
 

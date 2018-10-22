@@ -1,6 +1,7 @@
-package com.rentaroom.rentaroom.room.database;
+package com.rentaroom.room.controller;
 
-import com.rentaroom.rentaroom.login.User;
+import com.rentaroom.room.service.RoomService;
+import com.rentaroom.room.model.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,5 +33,4 @@ public class RoomController {
         model.addAttribute("rooms", roomService.findAll());
         return "rooms";
     }
-
 }

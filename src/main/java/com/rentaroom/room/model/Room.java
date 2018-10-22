@@ -1,12 +1,15 @@
-package com.rentaroom.rentaroom.room.database;
+package com.rentaroom.room.model;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "room")
 public class Room {
+
     private Long id;
+
     private double price;
+
     private String address;// TODO need to create Address class
 
     @Id

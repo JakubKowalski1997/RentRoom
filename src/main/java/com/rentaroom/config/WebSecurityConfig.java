@@ -1,4 +1,5 @@
-package com.rentaroom.rentaroom.login;
+package com.rentaroom.config;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -42,8 +44,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
 
-    @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
     @Override
+    @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }

@@ -1,4 +1,6 @@
-package com.rentaroom.rentaroom.login;
+package com.rentaroom.security.user.model;
+
+import com.rentaroom.security.role.model.Role;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -6,10 +8,15 @@ import java.util.Set;
 @Entity
 @Table(name = "\"user\"")
 public class User {
+
     private Long id;
+
     private String username;
+
     private String password;
+
     private String passwordConfirm;
+
     private Set<Role> roles;
 
     @Id
@@ -56,6 +63,4 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
-
 }

@@ -1,5 +1,8 @@
-package com.rentaroom.rentaroom.login;
+package com.rentaroom.security.user.service.details;
 
+import com.rentaroom.security.user.repository.UserRepository;
+import com.rentaroom.security.role.model.Role;
+import com.rentaroom.security.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,9 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashSet;
 import java.util.Set;
 
-
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+
     @Autowired
     private UserRepository userRepository;
 

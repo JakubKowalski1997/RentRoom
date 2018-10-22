@@ -1,14 +1,16 @@
-package com.rentaroom.rentaroom.login;
+package com.rentaroom.security.user.validator;
 
+import com.rentaroom.security.user.model.User;
+import com.rentaroom.security.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-
 @Component
 public class UserValidator implements Validator {
+
     @Autowired
     private UserService userService;
 
@@ -46,5 +48,4 @@ public class UserValidator implements Validator {
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
-
 }
