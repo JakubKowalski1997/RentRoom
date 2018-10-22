@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>rentaroom</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Room renting service</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
