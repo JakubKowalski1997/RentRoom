@@ -1,8 +1,7 @@
 package com.rentaroom.rentaroom.user;
-
-import com.rentaroom.rentaroom.login.User;
-import com.rentaroom.rentaroom.login.UserService;
-import com.rentaroom.rentaroom.login.UserValidator;
+import com.rentaroom.security.user.model.User;
+import com.rentaroom.security.user.service.UserService;
+import com.rentaroom.security.user.validator.UserValidator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

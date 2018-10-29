@@ -1,7 +1,7 @@
 package com.rentaroom.rentaroom.user;
 
-import com.rentaroom.rentaroom.login.User;
-import com.rentaroom.rentaroom.login.UserValidator;
+import com.rentaroom.security.user.model.User;
+import com.rentaroom.security.user.validator.UserValidator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
