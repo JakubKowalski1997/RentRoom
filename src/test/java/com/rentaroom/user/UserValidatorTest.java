@@ -1,7 +1,7 @@
-package com.rentaroom.rentaroom.user;
+package com.rentaroom.user;
 
-import com.rentaroom.rentaroom.login.User;
-import com.rentaroom.rentaroom.login.UserValidator;
+import com.rentaroom.security.user.validator.UserValidator;
+import com.rentaroom.security.user.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -32,6 +33,10 @@ public class UserValidatorTest {
         invalidUser.setUsername("");
         invalidUser.setPassword("dupa123");
         invalidUser.setPasswordConfirm("dupa123");
+        invalidUser.setFirstName("first");
+        invalidUser.setLastName("last");
+        invalidUser.setRegistrationDate(new Date());
+        invalidUser.setLastLoginDate(new Date());
 
         Errors errors = new BeanPropertyBindingResult(invalidUser, "invalidUser");
         userValidator.validate(invalidUser, errors);
@@ -54,6 +59,10 @@ public class UserValidatorTest {
         invalidUser.setUsername("fapllllololololololololollololss2");
         invalidUser.setPassword("faplllosss");
         invalidUser.setPasswordConfirm("faplllosss");
+        invalidUser.setFirstName("first");
+        invalidUser.setLastName("last");
+        invalidUser.setRegistrationDate(new Date());
+        invalidUser.setLastLoginDate(new Date());
 
         Errors errors = new BeanPropertyBindingResult(invalidUser, "invalidUser");
         userValidator.validate(invalidUser, errors);
@@ -73,6 +82,10 @@ public class UserValidatorTest {
         validUser.setUsername("fapllllololololololololollololss");
         validUser.setPassword("faplllosss");
         validUser.setPasswordConfirm("faplllosss");
+        validUser.setFirstName("first");
+        validUser.setLastName("last");
+        validUser.setRegistrationDate(new Date());
+        validUser.setLastLoginDate(new Date());
 
         Errors errorsValid = new BeanPropertyBindingResult(validUser, "validUser");
         userValidator.validate(validUser, errorsValid);

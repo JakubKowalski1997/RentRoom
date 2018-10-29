@@ -1,8 +1,8 @@
-package com.rentaroom.rentaroom.user;
+package com.rentaroom.user;
 
-import com.rentaroom.rentaroom.login.User;
-import com.rentaroom.rentaroom.login.UserService;
-import com.rentaroom.rentaroom.login.UserValidator;
+import com.rentaroom.security.user.service.UserService;
+import com.rentaroom.security.user.validator.UserValidator;
+import com.rentaroom.security.user.model.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,6 +16,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -47,6 +48,10 @@ public class UserValidatorMockTest {
         duplicateUser.setUsername("faplllosss");
         duplicateUser.setPassword("faplllosss123");
         duplicateUser.setPasswordConfirm("faplllosss123");
+        duplicateUser.setFirstName("first");
+        duplicateUser.setLastName("last");
+        duplicateUser.setRegistrationDate(new Date());
+        duplicateUser.setLastLoginDate(new Date());
 
         Errors errors = new BeanPropertyBindingResult(duplicateUser, "duplicateUser");
         userValidator.validate(duplicateUser, errors);
