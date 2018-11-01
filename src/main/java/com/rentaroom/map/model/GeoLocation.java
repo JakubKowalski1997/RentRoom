@@ -11,6 +11,8 @@ public class GeoLocation {
 
     private double longitude;
 
+    private double radius;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
@@ -35,5 +37,13 @@ public class GeoLocation {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public double getRadius() {
+        return radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
     }
 }
