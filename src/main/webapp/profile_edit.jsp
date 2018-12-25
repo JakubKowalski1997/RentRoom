@@ -30,28 +30,34 @@
 
 <div class="container">
 
-    <form:form method="POST" modelAttribute="user" class="form-signin">
+    <form:form method="POST" modelAttribute="profile" class="form-signin">
         <h2 class="form-signin-heading">Create your account</h2>
-        <spring:bind path="username">
+        <spring:bind path="firstName">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="text" path="username" class="form-control" placeholder="Username"
+                <form:input type="text" path="firstName" class="form-control" placeholder="First name"
                             autofocus="true"></form:input>
-                <form:errors path="username"></form:errors>
+                <form:errors path="firstName"></form:errors>
             </div>
         </spring:bind>
 
-        <spring:bind path="password">
+        <spring:bind path="lastName">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="password" path="password" class="form-control" placeholder="Password"></form:input>
-                <form:errors path="password"></form:errors>
+                <form:input type="text" path="lastName" class="form-control" placeholder="Last name"></form:input>
+                <form:errors path="lastName"></form:errors>
             </div>
         </spring:bind>
 
-        <spring:bind path="passwordConfirm">
+        <spring:bind path="email">
             <div class="form-group ${status.error ? 'has-error' : ''}">
-                <form:input type="password" path="passwordConfirm" class="form-control"
-                            placeholder="Confirm your password"></form:input>
-                <form:errors path="passwordConfirm"></form:errors>
+                <form:input type="text" path="email" class="form-control" placeholder="Email"></form:input>
+                <form:errors path="email"></form:errors>
+            </div>
+        </spring:bind>
+
+        <spring:bind path="phone">
+            <div class="form-group ${status.error ? 'has-error' : ''}">
+                <form:input type="text" path="phone" class="form-control" placeholder="Phone"></form:input>
+                <form:errors path="phone"></form:errors>
             </div>
         </spring:bind>
 

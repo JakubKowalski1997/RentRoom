@@ -1,5 +1,6 @@
 package com.rentaroom.security.user.model;
 
+import com.rentaroom.profile.model.Profile;
 import com.rentaroom.security.role.model.Role;
 
 import javax.persistence.*;
@@ -10,6 +11,8 @@ import java.util.Set;
 @Table(name = "\"user\"")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String username;
@@ -18,18 +21,18 @@ public class User {
 
     private String passwordConfirm;
 
+    @ManyToMany
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
-
-    private String firstName;
-
-    private String lastName;
 
     private Date registrationDate;
 
     private Date lastLoginDate;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "profile_id")
+    private Profile profile;
+
     public Long getId() {
         return id;
     }
@@ -63,22 +66,6 @@ public class User {
         this.passwordConfirm = passwordConfirm;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public Date getRegistrationDate() {
         return registrationDate;
     }
@@ -95,8 +82,14 @@ public class User {
         this.lastLoginDate = lastLoginDate;
     }
 
-    @ManyToMany
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
     public Set<Role> getRoles() {
         return roles;
     }

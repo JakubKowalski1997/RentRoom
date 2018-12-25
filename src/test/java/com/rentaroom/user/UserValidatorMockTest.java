@@ -48,8 +48,6 @@ public class UserValidatorMockTest {
         duplicateUser.setUsername("faplllosss");
         duplicateUser.setPassword("faplllosss123");
         duplicateUser.setPasswordConfirm("faplllosss123");
-        duplicateUser.setFirstName("first");
-        duplicateUser.setLastName("last");
         duplicateUser.setRegistrationDate(new Date());
         duplicateUser.setLastLoginDate(new Date());
 

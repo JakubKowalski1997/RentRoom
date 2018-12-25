@@ -33,8 +33,6 @@ public class UserValidatorTest {
         invalidUser.setUsername("");
         invalidUser.setPassword("dupa123");
         invalidUser.setPasswordConfirm("dupa123");
-        invalidUser.setFirstName("first");
-        invalidUser.setLastName("last");
         invalidUser.setRegistrationDate(new Date());
         invalidUser.setLastLoginDate(new Date());
 
@@ -59,8 +57,6 @@ public class UserValidatorTest {
         invalidUser.setUsername("fapllllololololololololollololss2");
         invalidUser.setPassword("faplllosss");
         invalidUser.setPasswordConfirm("faplllosss");
-        invalidUser.setFirstName("first");
-        invalidUser.setLastName("last");
         invalidUser.setRegistrationDate(new Date());
         invalidUser.setLastLoginDate(new Date());
 
@@ -82,8 +78,6 @@ public class UserValidatorTest {
         validUser.setUsername("fapllllololololololololollololss");
         validUser.setPassword("faplllosss");
         validUser.setPasswordConfirm("faplllosss");
-        validUser.setFirstName("first");
-        validUser.setLastName("last");
         validUser.setRegistrationDate(new Date());
         validUser.setLastLoginDate(new Date());
 

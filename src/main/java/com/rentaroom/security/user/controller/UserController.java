@@ -1,9 +1,11 @@
 package com.rentaroom.security.user.controller;
 
-import com.rentaroom.security.user.service.UserService;
-import com.rentaroom.security.user.validator.UserValidator;
+import com.rentaroom.profile.model.Profile;
+import com.rentaroom.profile.service.ProfileService;
 import com.rentaroom.security.service.SecurityService;
 import com.rentaroom.security.user.model.User;
+import com.rentaroom.security.user.service.UserService;
+import com.rentaroom.security.user.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,26 +26,34 @@ public class UserController {
     @Autowired
     private UserValidator userValidator;
 
+    @Autowired
+    private ProfileService profileService;
+
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
-        model.addAttribute("userForm", new User());
+        model.addAttribute("user", new User());
 
         return "registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult, Model model) {
-        userValidator.validate(userForm, bindingResult);
+    public String registration(@ModelAttribute("user") User user, BindingResult bindingResult) {
+        userValidator.validate(user, bindingResult);
 
         if (bindingResult.hasErrors()) {
             return "registration";
         }
 
-        userService.save(userForm);
+        Profile profile = new Profile();
+        user.setProfile(profile);
 
-        securityService.autologin(userForm.getUsername(), userForm.getPasswordConfirm());
+        profileService.save(profile);
 
-        return "redirect:/welcome";
+        userService.save(user);
+
+        securityService.autologin(user.getUsername(), user.getPasswordConfirm());
+
+        return "redirect:/profile/edit/" + user.getProfile().getId();
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
