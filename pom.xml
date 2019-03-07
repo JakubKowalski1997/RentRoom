@@ -25,10 +25,10 @@
 	</properties>
 
 	<dependencies>
+		<!-- H2 Database -->
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 		</dependency>
 
 		<dependency>
@@ -79,17 +79,6 @@
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.openstreetmap/josm -->
-		<dependency>
-			<groupId>org.openstreetmap</groupId>
-			<artifactId>josm</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.openstreetmap.osmosis</groupId>
-			<artifactId>osmosis-pbf</artifactId>
-			<version>0.46</version>
 		</dependency>
 
 	</dependencies>
