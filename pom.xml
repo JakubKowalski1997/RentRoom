@@ -81,7 +81,7 @@
 			<artifactId>jstl</artifactId>
 		</dependency>
 
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>

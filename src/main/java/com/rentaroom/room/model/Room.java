@@ -1,19 +1,22 @@
 package com.rentaroom.room.model;
 
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "room")
 public class Room {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private double price;
 
-    private String address;// TODO need to create Address class
+    private double area;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String address;
+
     public Long getId() {
         return id;
     }
