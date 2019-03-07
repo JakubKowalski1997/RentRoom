@@ -1,7 +1,9 @@
 package com.rentaroom.user;
+
 import com.rentaroom.security.user.model.User;
 import com.rentaroom.security.user.service.UserService;
 import com.rentaroom.security.user.validator.UserValidator;
+import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,14 +20,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 @SpringBootTest
 public class UserValidatorTest {
+    private final static Logger log = Logger.getLogger(UserValidatorTest.class);
 
     @InjectMocks
     private UserValidator userValidator;
@@ -51,7 +52,7 @@ public class UserValidatorTest {
         duplicateUser.setLastName("Nowak");
 
         Errors errors = new BeanPropertyBindingResult(duplicateUser, "duplicateUser");
-        System.out.println(errors + " " + duplicateUser);
+        log.debug(errors + " " + duplicateUser);
         userValidator.validate(duplicateUser, errors);
 
         FieldError usernameFieldError = errors.getFieldError("username");
